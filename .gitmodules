@@ -4,3 +4,6 @@
 [submodule "assets/css/normalize"]
 	path = assets/css/normalize
 	url = git://github.com/necolas/normalize.css.git
+[submodule "assets/css/bootstrap"]
+	path = assets/css/bootstrap
+	url = git://github.com/twitter/bootstrap.git
