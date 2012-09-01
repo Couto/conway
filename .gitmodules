@@ -1,3 +1,6 @@
 [submodule "libs/requirejs"]
 	path = libs/requirejs
 	url = git://github.com/jrburke/requirejs.git
+[submodule "assets/css/normalize"]
+	path = assets/css/normalize
+	url = git://github.com/necolas/normalize.css.git
