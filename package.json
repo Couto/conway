@@ -1,0 +1,30 @@
+{
+  "name": "Conway",
+  "version": "0.1.0",
+  "description": "Javascript implementation of Conway's Game of Life",
+  "main": "index.html",
+  "scripts": {
+    "start": "make serve",
+    "stop": "",
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Couto/Conway"
+  },
+  "keywords": [
+    "conway",
+    "game",
+    "life"
+  ],
+  "author": "Couto <couto@15minuteslate.net> (http://15minuteslate.net)",
+  "license": "MIT - http://couto.mit-license.org",
+  "dependencies": {
+    "serve": "~1.1.0"
+  },
+  "devDependencies": {
+    "expect.js": "~0.1.2",
+    "mocha": "~1.4.1",
+    "jshint": "~0.8.2"
+  }
+}
