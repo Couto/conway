@@ -21,7 +21,6 @@ define([
         },
 
         end: function () {
-            console.log("ended");
             this.applicationView.dealloc();
             this.applicationController.dealloc();
         }

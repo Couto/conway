@@ -8,18 +8,39 @@
 
         <title>Conwnay's Game of Life</title>
 
-        <link rel="stylesheet" href="assets/css/normalize/normalize.css">
         <link rel="stylesheet" href="assets/css/bootstrap.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="#">Conway's Game of Life</a>
+        <div class="topbar">
+            <h1>Conway's Game of Life</h1>
+        </div>
+        <div class="field"></div>
+        <div class="sidebar">
+            <div class="section-top">
+                <div class="input-prepend">
+                    <span class="add-on">Width:</span>
+                    <input class="input-large width" type="number" min="10" placeholder="10">
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on">Height:</span>
+                    <input class="input-large height" type="number" min="10" placeholder="10">
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on">Zoom:</span>
+                    <input class="input-large zoom" type="number" placeholder="1">
+                </div>
+            </div>
+            <div class="section-middle">
+                <div class="well">
+                    <div class="btn-group">
+                        <button class="play btn btn-success"><i class="icon-white icon-play"></i>Start</button>
+                        <button class="stop disabled btn "><i class="icon-stop"></i>Stop</button>
+                    </div>
+                    <button class="clear btn btn-block btn-danger"><i class="icon-white icon-trash"></i>Clear</button>
                 </div>
             </div>
         </div>
-        <script data-main="app/app.js" src="libs/requirejs/require.js"></script>
+        <script async data-main="app/app.js" src="libs/requirejs/require.js"></script>
     </body>
 </html>

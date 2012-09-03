@@ -50,7 +50,7 @@
     // Enviroments (yes... reinforcing that it uses no libraries!)
     "browser"       : true,     // This option defines globals exposed by modern browsers: all the way from good ol' document and navigator to the HTML5 FileReader and other new developments in the browser world.
     "couch"         : false,    // This option defines globals exposed by CouchDB. CouchDB is a document-oriented database that can be queried and indexed in a MapReduce fashion using JavaScript.
-    "devel"         : false,    // This option defines globals that are usually used for logging poor-man's debugging: console, alert, etc. It is usually a good idea to not ship them in production because, for example, console.log breaks in legacy versions of Internet Explorer.
+    "devel"         : true,     // This option defines globals that are usually used for logging poor-man's debugging: console, alert, etc. It is usually a good idea to not ship them in production because, for example, console.log breaks in legacy versions of Internet Explorer.
     "dojo"          : false,    // This option defines globals exposed by the Dojo Toolkit.
     "jquery"        : false,    // This option defines globals exposed by the jQuery JavaScript library.
     "mootools"      : false,    // This option defines globals exposed by the MooTools JavaScript framework.
@@ -59,7 +59,7 @@
     "prototypejs"   : false,    // This option defines globals exposed by the Prototype JavaScript framework.
     "rhino"         : false,    // This option defines globals available when your code is running inside of the Rhino runtime environment. Rhino is an open-source implementation of JavaScript written entirely in Java.
     "worker"        : false,    // This option defines globals available when your code is running inside of a Web Worker. Web Workers provide a simple means for web content to run scripts in background threads.
-    "wsh"           : false,     // This option defines globals available when your code is running as a script for the Windows Script Host.
+    "wsh"           : false,    // This option defines globals available when your code is running as a script for the Windows Script Host.
 
     //Legacy (I'm a JSLint fan)
     "nomen"     : true,     // This option disallows the use of dangling _ in variables. We don't know why would you need it.

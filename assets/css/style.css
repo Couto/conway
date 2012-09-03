@@ -1,6 +1,16 @@
-.line {
+body {
+    background-color: #f8f8f8;
+}
+
+.grid {
     border-top: 1px solid #aaa;
     border-left: 1px solid #aaa;
+    margin: 20px;
+    overflow: hidden;
+    float: left;
+}
+
+.line {
     overflow: hidden;
     float: left;
     clear: both;
@@ -16,5 +26,79 @@
 }
 
 .alive {
-    background-color: #aaa;
+    background-color: #777;
+}
+
+.topbar {
+    position: relative;
+    z-index: 2;
+    min-height: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #FAFAFA;
+    background-image: -moz-linear-gradient(top, white, #F2F2F2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#F2F2F2));
+    background-image: -webkit-linear-gradient(top, white, #F2F2F2);
+    background-image: -o-linear-gradient(top, white, #F2F2F2);
+    background-image: linear-gradient(to bottom, white, #F2F2F2);
+    background-repeat: repeat-x;
+    border: 1px solid #D4D4D4;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+
+.topbar h1 {
+    color: #aaa;
+    text-shadow: 0 1px 2px white;
+    font-weight: 200;
+}
+
+.sidebar {
+    position: absolute;
+    padding: 40px 20px;
+    z-index: 1;
+    top: 60px;
+    bottom: 0;
+    right: 0;
+    width: 280px;
+    background-color: #eee;
+    height: 100%;
+    border-left: 1px solid #cfcfcf;
+}
+
+.field {
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    right: 301px;
+    bottom: 0;
+    left: 0;
+    border-right: 1px solid #fff;
+}
+
+.section-top {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.section-middle {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid #ccc;
+}
+
+.well {
+    margin-bottom: 0;
+}
+.play {
+    width: 50%;
+}
+
+.stop {
+    width: 50%;
+}
+
+.clear {
+    margin-top: 10px;
 }

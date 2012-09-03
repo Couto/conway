@@ -29,7 +29,7 @@ define({
                 topic.fn[i].apply(topic.ctx[i], args);
             }
         }
-
+        console.log(' [PUBSUB:Published] %s', name);
         return this;
     },
     /**
@@ -41,7 +41,7 @@ define({
      */
     subscribe: function (name, cb, ctx) {
         'use strict';
-        console.log("subscribed: %s", name);
+        console.log('subscribed: %s', name);
         if (!this.cache[name]) {
             this.cache[name] = {
                 fn: [],

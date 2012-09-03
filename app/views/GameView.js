@@ -14,13 +14,15 @@ define([
         this.height = height;
         this.element = document.createElement('div');
         this.element.setAttribute('class', 'grid');
+        this.handlers = {};
+        this.subscribe();
     }
 
     GridView.prototype = {
 
         constructor: GridView,
 
-        build: function () {
+        build: function (placeholder) {
             var w = this.width - 1,
                 h = this.height - 1,
                 line, cell;
@@ -41,7 +43,50 @@ define([
 
             this.bind();
 
+            if (placeholder) {
+                this.placeholder = placeholder;
+                this.placeholder.appendChild(this.element);
+            }
+
             return this.element;
+        },
+
+        setWidth: function (width) {
+            this.width = parseInt(width, 10);
+            return this;
+        },
+
+        setHeight: function (height) {
+            this.height = parseInt(height, 10);
+            return this;
+        },
+
+        setZoom: function (value) {
+
+            this.element.style.zoom = value;
+            console.log("setting zoom", value, this.element);
+        },
+
+        clear: function () {
+            this.unbind();
+            [].slice.call(this.element.childNodes).forEach(function (val) {
+                this.element.removeChild(val);
+            }.bind(this));
+            this.build(this.placeholder);
+        },
+
+        subscribe: function () {
+            this.handlers.sidebarWidth = pubsub.subscribe('sidebar:width', this.setWidth, this);
+            this.handlers.sidebarHeight = pubsub.subscribe('sidebar:height', this.setHeight, this);
+            this.handlers.sidebarZoom = pubsub.subscribe('sidebar:zoom', this.setZoom, this);
+            this.handlers.gameReset = pubsub.subscribe('game:reset', this.clear, this);
+        },
+
+        unsubscribe: function () {
+            pubsub.unsubscribe(this.handlers.sidebarWidth);
+            pubsub.unsubscribe(this.handlers.sidebarHeight);
+            pubsub.unsubscribe(this.handlers.sidebarZoom);
+            pubsub.subscribe(this.handlers.gameReset);
         },
 
         bind: function () {

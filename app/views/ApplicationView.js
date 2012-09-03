@@ -1,19 +1,39 @@
-define(['views/GameView'], function (GridView) {
+define([
+    'pubsub',
+    'views/GameView',
+    'views/SidebarView'
+], function (pubsub, GameView, SidebarView) {
 
     'use strict';
 
     function ApplicationView() {
-        this.setGridView(20, 20);
+        this.gameView = new GameView();
+        this.sidebarView = new SidebarView();
+
+        this.handlers = {};
+        this.setGameWidth(10);
+        this.setGameHeight(10);
+
+        this.element = document.body;
+        this.element.querySelector('.field').appendChild(this.gameView.build());
     }
 
     ApplicationView.prototype = {
 
         constructor: ApplicationView,
 
-        setGridView: function (width, height) {
-            this.gridView = new GridView(width, height);
-            document.body.appendChild(this.gridView.build());
+        setGameWidth: function (width) {
+            this.gameView.setWidth(width);
         },
+
+        setGameHeight: function (height) {
+            this.gameView.setHeight(height);
+        },
+
+        subscribe: function () {
+
+        },
+        unsubscribe: function () {},
 
         unsetGridView: function () {
             this.gridView.dealloc();

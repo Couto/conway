@@ -1,7 +1,8 @@
 define([
     'pubsub',
+    'utilities/Timer',
     'collections/CellCollection'
-], function (pubsub, CellCollection) {
+], function (pubsub, Timer, CellCollection) {
     'use strict';
 
     function GameController() {
@@ -9,6 +10,8 @@ define([
         this.handlers = {};
         this.generation = 0;
         this.subscribe();
+
+        this.timer = new Timer();
     }
 
     GameController.prototype = {
@@ -19,8 +22,8 @@ define([
             this.handlers.gameAdded = pubsub.subscribe('game:added', this.add, this);
             this.handlers.cellAlive = pubsub.subscribe('game:alive', this.setAsAlive, this);
             this.handlers.cellDied = pubsub.subscribe('game:died', this.setAsDead, this);
+            this.handlers.clearGame = pubsub.subscribe('sidebar:clear', this.reset, this);
             this.handlers.timerTick = pubsub.subscribe('timer:tick', this.play, this);
-            this.handlers.timerStopped = pubsub.subscribe('timer:stopped', this.stop, this);
         },
 
         unsubscribe: function () {
@@ -31,18 +34,39 @@ define([
             pubsub.subscribe(this.handlers.timerStopped);
         },
 
-        play: function () {},
+        play: function () {
+            this.timer.play();
+        },
+
+        stop: function () {
+            this.timer.stop();
+        },
+
+        pause: function () {
+            this.timer.pause();
+        },
+
+        resume: function () {
+            this.timer.resume();
+        },
+
+        reset: function () {
+            this.stop();
+            this.collection.dealloc();
+            this.collection = new CellCollection();
+            pubsub.publish('game:reset');
+        },
 
         add: function (cell) {
             this.collection.add(cell);
         },
 
         setAsAlive: function (id) {
-            var cell = this.collection.find(id).rebirth();
+            this.collection.find(id).rebirth();
         },
 
         setAsDead: function (id) {
-            var cell = this.collection.find(id).die();
+            this.collection.find(id).die();
         },
 
         dealloc: function () {

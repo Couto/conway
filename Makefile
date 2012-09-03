@@ -4,6 +4,7 @@ hint:
 less:
 	@if [[ -f assets/css/bootstrap.compiled.css ]]; then rm assets/css/bootstrap.compiled.css; fi
 	@./node_modules/.bin/lessc assets/css/bootstrap/less/bootstrap.less assets/css/bootstrap.css
+	@cp -f assets/css/bootstrap/img/* assets/img/
 
 test: hint
 	@./node_modules/.bin/mocha
