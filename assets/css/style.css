@@ -1,0 +1,20 @@
+.line {
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    overflow: hidden;
+    float: left;
+    clear: both;
+}
+
+
+.cell {
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    width: 10px;
+    height: 10px;
+    float: left;
+}
+
+.alive {
+    background-color: #aaa;
+}
