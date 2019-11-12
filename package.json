@@ -20,7 +20,7 @@
   "author": "Couto <couto@15minuteslate.net> (http://15minuteslate.net)",
   "license": "MIT - http://couto.mit-license.org",
   "dependencies": {
-    "serve": "~1.1.0"
+    "serve": "~11.2.0"
   },
   "devDependencies": {
     "expect.js": "~0.1.2",
